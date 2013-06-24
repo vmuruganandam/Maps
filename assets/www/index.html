@@ -41,39 +41,39 @@ txtFile.send(null);
 /*function hi(){
     window.open('http://genterprise.web44.net/uploaded/example.apk', '_blank', 'location=yes');
 }*/
-function downloadFile()
-{
-    window.requestFileSystem(
-        LocalFileSystem.PERSISTENT, 0, 
-        function onFileSystemSuccess(fileSystem) {
-            fileSystem.root.getFile(
-            "dummy.html", {create: true, exclusive: false}, 
-            function gotFileEntry(fileEntry) {
-                var sPath = fileEntry.fullPath.replace("dummy.html","");
-                var fileTransfer = new FileTransfer();
-                fileEntry.remove();
+function yoyo()
 
-                fileTransfer.download(
-                    "http://genterprise.web44.net/uploaded/example.apk",
-                    sPath + "theFile.pdf",
-                    function(theFile) {
-                        console.log("download complete: " + theFile.toURI());
-                        showLink(theFile.toURI());
-                    },
-                    function(error) {
-                        console.log("download error source " + error.source);
-                        console.log("download error target " + error.target);
-                        console.log("upload error code: " + error.code);
-                    }
-                );
-            }, fail);
-        }, fail);
-    }
-
-function fail()
 {
-    alert("fuck");
+
+var fileTransfer = new FileTransfer();
+
+
+fileTransfer.download(
+
+"http://genterprise.web44.net/uploaded/example.apk",
+
+"file:///sdcard/example.apk",
+
+function(entry) {
+
+console.log("download complete: " + entry.fullPath);
+
+},
+
+function(error) {
+
+console.log("download error source " + error.source);
+
+console.log("download error target " + error.target);
+
+console.log("upload error code" + error.code);
+
 }
+
+);
+
+}
+
 
 </script>
 
@@ -82,7 +82,7 @@ function fail()
 
 <body>
 
-<button onclick="downloadFile()">Print version.txt</button>
+<button onclick="yoyo()">Print version.txt</button>
 
 
 </body>
