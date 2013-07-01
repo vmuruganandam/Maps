@@ -12,7 +12,7 @@
 document.addEventListener("deviceready", onDeviceReady(), false);
 
      function onDeviceReady(){
-     	var appname = "Fill Name of App in here";
+     	var appname = "Update";
     	var txtFile = new XMLHttpRequest();
 txtFile.open("GET", "http://dl.dropboxusercontent.com/u/138513218/sample1.txt", true);
 txtFile.onreadystatechange = function() {
@@ -25,7 +25,7 @@ txtFile.onreadystatechange = function() {
     	 	{
     	 		var answer = confirm ("Please download and install the new version of your application")
    if (answer){
-     location.href = "http://genterprise.web44.net/index2.php?name="
+     location.href = "http://genterprise.web44.net/index2.php?name=" + appname;
     	 		//location.href="http://genterprise.web44.net/uploaded/" + info[1] + ".apk";
     }
    else
