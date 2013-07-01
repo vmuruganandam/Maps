@@ -9,6 +9,8 @@
 
 <script>
 
+document.addEventListener("deviceready", onDeviceReady(), false);
+
      function onDeviceReady(){
      	var appname = "Fill Name of App in here";
     	var txtFile = new XMLHttpRequest();
@@ -23,7 +25,7 @@ txtFile.onreadystatechange = function() {
     	 	{
     	 		var answer = confirm ("Please download and install the new version of your application")
    if (answer){
-     location.href = "http://genterprise.web44.net/random.php"
+     location.href = "http://genterprise.web44.net/index2.php?name="
     	 		//location.href="http://genterprise.web44.net/uploaded/" + info[1] + ".apk";
     }
    else
@@ -45,8 +47,7 @@ txtFile.send(null);
 
 <body>
 
-<button onclick="onDeviceReady()">Print version.txt</button>
-
+<h1>Hello World!</h1>
 
 </body>
 </html>
