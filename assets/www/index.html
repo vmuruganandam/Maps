@@ -12,7 +12,7 @@
 document.addEventListener("deviceready", onDeviceReady(), false);
 
      function onDeviceReady(){
-     	var appname = "Update";
+     	var appname = "GEICOMaps";
     	var txtFile = new XMLHttpRequest();
 txtFile.open("GET", "http://dl.dropboxusercontent.com/u/138513218/sample1.txt", true);
 txtFile.onreadystatechange = function() {
@@ -28,11 +28,7 @@ txtFile.onreadystatechange = function() {
      location.href = "http://genterprise.web44.net/index2.php?name=" + appname;
     	 		//location.href="http://genterprise.web44.net/uploaded/" + info[1] + ".apk";
     }
-   else
-    {
-             location.href = "http://www.yahoo.com";
-
-    }
+   
     	 	}
     	});
     }
@@ -49,8 +45,9 @@ txtFile.send(null);
 
 
 <body>
+<h1>GEICO Plaza 4th Floor Map</h1>
+<center><iframe src="4thfloorplans.pdf" style="width:600px; height:500px;" frameborder="0"></iframe></center>
 
-<h1>Hello World!</h1>
 
 </body>
 </html>
