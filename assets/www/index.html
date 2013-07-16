@@ -3,14 +3,13 @@
 
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.67, minimum-scale=0.67, maximum-scale=0.67, user-scalable=no, target-densityDpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
             <script charset="utf-8" src = "jquery-1.10.1.min.js"></script>
             <script charset="utf-8" src = "cordova.js"></script>
-            <meta name="viewport" content="width=device-width, initial-scale=0.67, minimum-scale=0.67, maximum-scale=0.67, user-scalable=no, target-densityDpi=device-dpi" />
-
             <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
-            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places">
-    
+            <script type="text/javascript" 
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places">
 </script> 
 <style>
       #map_canvas {
@@ -24,6 +23,9 @@
     <title>Device Properties Example</title>
 
     <script type="text/javascript" charset="utf-8">
+    
+    var map;
+    var myMarker;
 
     // Wait for device API libraries to load
     //
@@ -31,29 +33,23 @@
 
     // device APIs are available
     //
-    var overlay;
-var map;
-        document.addEventListener("deviceready", onDeviceReady, false);
     
+        document.addEventListener("deviceready", onDeviceReady, false);
+    var overlay;
+
 USGSOverlay.prototype = new google.maps.OverlayView();
 
-function drawMarker(position, map, marker) {
-    //var latlng2 = new google.maps.LatLng(38.961389, -77.090833);
-setTimeout( function(){ 
-    var lat = position.coords.latitude;
-    var longz = position.coords.longitude;
-    
-        marker.setPosition( new google.maps.LatLng(lat,longz) );
-        map.panTo( new google.maps.LatLng(lat,longz) );
-        
-    }, 1500 );
+function drawMarker(map, curPosition)
+{
+var myMarker2 = new google.maps.Marker({
+  position: curPosition,
+  map: map,
+  title:"Apple Computer"
+});
 }
 
 
 function initialize(floor) {
-  var myLatLng = new google.maps.LatLng(38.9616125, -77.0914382);
-
-
   var swBound = new google.maps.LatLng(38.9604025, -77.0920182);
   var neBound = new google.maps.LatLng(38.9623025, -77.0892782);
   var bounds = new google.maps.LatLngBounds(swBound, neBound);
@@ -139,122 +135,37 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
     function onDeviceReady() {
-            var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-                mapOptions = {
+          var myLatLng = new google.maps.LatLng(38.9616125, -77.0914382);
+  var mapOptions = {
     zoom: 18,
     center: myLatLng,
     mapTypeId: google.maps.MapTypeId.SATELLITE
-  },
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+   myMarker = new google.maps.Marker({position: myLatLng, map: map});
 
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions),
-           
-           marker = new google.maps.Marker( {position: myLatLng, map: map} );
-           marker.setMap(map);
+        
            var options = { frequency: 15000 };
-        watchID = navigator.geolocation.watchPosition(drawMarker(map, marker), onError, options);
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
     }
     // onSuccess Geolocation
     //
     function onSuccess(position) {
     
-        
-    
-        var coordinates = new Array(11);
-        for(var i = 0; i < 11; i++)
-            coordinates[i] = new Array(2);
-        coordinates[0] = [38.9616125, -77.0914382]; //GEICO Plaza
-        coordinates[1] = [32.93946,-117.02543]; //San Diego, CA
-        coordinates[2] = [32.23392,-110.83795]; //Tucson, AZ
-        coordinates[3] = [32.94098,-96.83782]; //Dallas, TX
-        coordinates[4] = [32.80945, -83.57165]; //Macon, GA
-        coordinates[5] = [27.97600, -82.01496] ; //Lakeland, FL
-        coordinates[6] = [36.78246,-76.01971]; //Virginia Beach, VA
-        coordinates[7] = [39.93458, -86.16190]; //Indianapolis, IN
-        coordinates[8] = [38.40000, -77.55000]; //Fredericksburg, VA
-        coordinates[9] = [39.91140, -74.94000]; //Marlton, NJ
-        coordinates[10] = [40.80637, -73.47772]; //Woodbury, NY
-        coordinates[11] = [43.03021, -78.75329]; //Buffalo, NY
-        var distances = new Array(11);
-        var temp = distance(currentlat, currentlong, coordinates[0][0], coordinates[0][1]);
-        distances[0] = temp;
-        var pos = 0;
-        for(var x = 1; x < 11; x++) {
-            distances[x] = distance(currentlat, currentlong, coordinates[x][0], coordinates[x][1]);
-            if(temp > distances[x]) {
-                temp = distances[x];
-                pos = x;
-            }
-        }
-        switch(pos)
-        {
-            case 0:
-            document.getElementById("geolocation").innerHTML = "Current Location: GEICO Plaza" + "<br>" + "<button onclick=\"initialize('plazaone')\">First Floor</button> <br> <button onclick=\"initialize('plazatwo')\">Second Floor</button> <br> <button onclick=\"initialize('plazathree')\">Third Floor</button> <br> <button onclick=\"initialize('plazafour')\">Fourth Floor</button>"//"Current office: " + pos;
-            break;
-            case 1:
-            alert("San Diego, CA Map");
-            break;
-            case 2:
-            alert("Tucson, AZ");
-            break;
-            case 3:
-            alert("Dallas, TX");
-            break;
-            case 4:
-            alert("Macon, GA");
-            break;
-            case 5:
-            alert("Lakeland, FL");
-            break;
-            case 6:
-            alert("Virginia Beach, VA");
-            break;
-            case 7:
-            alert("Indianapolis, IN");
-            break;
-            case 8:
-            alert("Fredericksburg, VA");
-            break;
-            case 9:
-            alert("Marlton, NJ");
-            break;
-            case 10:
-            alert("Woodbury, NY");
-            break;
-            case 11:
-            alert("Buffalo, NY");
-            break;
-            
-
-        }
+        var currentlat =  position.coords.latitude;
+        var currentlong = position.coords.longitude;
+        var curPosition = new google.maps.LatLng(currentlat, currentlong);       
+   // var latlng2 = new google.maps.LatLng(38.961389, -77.090833);\
+   myMarker.setPosition(curPosition);
+   
+        document.getElementById("geolocation").innerHTML = "Current Location: GEICO Plaza" + "<br>" + "<button onclick=\"initialize('plazaone')\">First Floor</button> <br> <button onclick=\"initialize('plazatwo')\">Second Floor</button> <br> <button onclick=\"initialize('plazathree')\">Third Floor</button> <br> <button onclick=\"initialize('plazafour')\">Fourth Floor</button>"//"Current office: " + pos;
     }
-
-function createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location
-    }); 
-}
     // onError Callback receives a PositionError object
     //
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
-function distance(lat1, lon1, lat2, lon2) {
-    var R = 6371; // km
-    var dLat = (lat2-lat1)*Math.PI/180;
-    var dLon = (lon2-lon1)*Math.PI/180;
-    var lat1 = lat1*Math.PI/180;
-    var lat2 = lat2*Math.PI/180;
-
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-    var d = R * c;
-    return d;
-} 
-
-
     </script>
   </head>
   <body>
