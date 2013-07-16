@@ -1,4 +1,0 @@
-GEICOMaps
-=========
-
-Maps App
