@@ -1,0 +1,60 @@
+Chevy Chase, MD (Headquarters)
+4608 Willard Ave
+Chevy Chase, MD 20815
+38.9616125,-77.0914382 
+
+San Diego, CA
+14111 Danielson Street
+Poway, CA 92064
+32.93946,-117.02543 
+
+Tucson, AZ
+930 North Finance Center Drive
+Tucson, AZ 85710
+32.23392,-110.83795
+
+Dallas, TX
+4201 Spring Valley Road
+Dallas, TX 75244
+32.94098,-96.83782
+
+Macon, GA
+4295 Ocmulgee East Blvd
+Macon, GA 31295
+32.80945, -83.57165
+
+Lakeland, FL
+3535 W Pipkin Road
+Lakeland, FL 33811
+27.97600, -82.01496
+
+Virginia Beach, VA
+1345 Perimeter Parkway
+Virginia Beach, VA 23454
+36.78246,-76.01971
+
+Indianapolis, IN
+101 W 103rd Street
+Indianapolis, IN 46290
+39.93458, -86.16190
+
+Fredericksburg, VA
+One GEICO Blvd
+Fredericksburg, VA 22412
+38.40000, -77.55000
+
+Marlton, NJ
+8000 Lincoln Drive East
+Marlton, NJ 08053
+39.91140, -74.94000
+
+Woodbury, NY
+750 Woodbury Road
+Woodbury, NY 11797
+40.80637, -73.47772
+
+Buffalo, NY
+300 Crosspoint Parkway
+Getzville, NY 14068
+43.03021, -78.75329
+
