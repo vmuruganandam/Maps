@@ -1,15 +1,41 @@
-<!DOCTYPE html>
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 <html>
-
-  <head>
+<head>
+<title>Car Clinic for Iphone, Android and Smartphone Website Templates | Home :: w3layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="Car Clinic Iphone web template, Andriod web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+<!----- Scroll top --------->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<!-----End  Scroll top --------->
+ <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.67, minimum-scale=0.67, maximum-scale=0.67, user-scalable=no, target-densityDpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
             <script charset="utf-8" src = "jquery-1.10.1.min.js"></script>
             <script charset="utf-8" src = "cordova.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=0.67, minimum-scale=0.67, maximum-scale=0.67, user-scalable=no, target-densityDpi=device-dpi" />
+<meta charset="utf-8">
+
             <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
-            <script type="text/javascript" 
-    src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places">
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places">
+    
 </script> 
 <style>
       #map_canvas {
@@ -19,10 +45,8 @@
 
       }
       </style>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Device Properties Example</title>
-
     <script type="text/javascript" charset="utf-8">
+
     
     var map;
     var myMarker;
@@ -150,7 +174,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         });
 
         
-           var options = { frequency: 15000 };
+           var options = { frequency: 1000 };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
     }
     // onSuccess Geolocation
@@ -161,10 +185,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
         var currentlong = position.coords.longitude;
         var curPosition = new google.maps.LatLng(currentlat, currentlong);       
    // var latlng2 = new google.maps.LatLng(38.961389, -77.090833);\
-   myMarker.setPosition(curPosition);
-   
-        document.getElementById("geolocation").innerHTML = "Current Location: GEICO Plaza" + "<br>" + "<button onclick=\"initialize('plazaone')\">First Floor</button> <br> <button onclick=\"initialize('plazatwo')\">Second Floor</button> <br> <button onclick=\"initialize('plazathree')\">Third Floor</button> <br> <button onclick=\"initialize('plazafour')\">Fourth Floor</button>"//"Current office: " + pos;
-    }
+        myMarker.setPosition(curPosition);
+   }
     // onError Callback receives a PositionError object
     //
     function onError(error) {
@@ -172,11 +194,58 @@ google.maps.event.addDomListener(window, 'load', initialize);
               'message: ' + error.message + '\n');
     }
     </script>
-  </head>
-  <body>
-  
-    <footer style = "position:fixed; clear:both;"><p id="geolocation">Finding geolocation...</p></footer>
-<div id="map-canvas" style="width:500px;height:500px;"></div>
-</body>
+    </head>
+<body>
+  <div class="header">      
+         <div class="header_top">
+             <div class="wrap">
+                    <div class="logo">
+                        <a href="index.html"><img src="img/MobileShield.png" alt="" /></a>
+                    </div>
+                    <div class="clear"></div>
+                    </div>  
+             </div>             
+                    <!--- Slider --->               
+     <div>
+<div id="map-canvas" style="width:1000px;height:600px;"></div>
+   </div>
+                 <!--- End Slider --->
+           <div class="header-bottom">
+            <div class="wrap">
+             <div class="menu">
+                        <ul>
+                            <li><a href="#" onclick="initialize('plazaone');">1st Floor</a></li>
+                            <li><a href="#" onclick="initialize('plazatwo');">2nd Floor</a></li>
+                            <li><a href="#" onclick="initialize('plazathree');">3rd Floor</a></li>
+                            <li><a href="#" onclick="initialize('plazafour');">4th Floor</a></li>
+                            <li><a href="#" onclick="initialize('plazatower5');">Tower 5th Floor</a></li>
+                            <li><a href="#" onclick="initialize('plazatower6');">Tower 6th Floor</a></li>
+                            <li><a href="#" onclick="initialize('plazatower7');">Tower 7th Floor</a></li>
+                            <li><a href="#" onclick="initialize('plazatower8');">Tower 8th Floor</a></li>
+
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                    </div>
+                    </div>
+    
+     <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+            };
+            */
+            
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            
+        });
+    </script>
+    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+    <!------------ End scroll Top ------------>
+    </body>
 </html>        
 
