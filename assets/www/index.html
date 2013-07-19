@@ -65,19 +65,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 USGSOverlay.prototype = new google.maps.OverlayView();
 function initialize(floor) {
           var myLatLng = new google.maps.LatLng(38.9616125, -77.0914382);
-          var image = "img/bluedot.png"
   var mapOptions = {
     zoom: 18,
     center: myLatLng,
     mapTypeId: google.maps.MapTypeId.SATELLITE
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-   myMarker = new google.maps.Marker({
-       position: myLatLng,
-        map: map,
-        icon: image,
-        });
-
   var swBound = new google.maps.LatLng(38.9604025, -77.0920182);
   var neBound = new google.maps.LatLng(38.9623025, -77.0892782);
   var bounds = new google.maps.LatLngBounds(swBound, neBound);
@@ -171,10 +164,18 @@ USGSOverlay.prototype.onRemove = function() {
     mapTypeId: google.maps.MapTypeId.SATELLITE
   },
 
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions),
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
           
-          marker = new google.maps.Marker( {position: myLatLng, map: map} );
-          marker.setMap(map);
+          
+        navigator.geolocation.getCurrentPosition(function(position){
+                    var image = "img/bluedot.png";
+             myMarker = new google.maps.Marker({
+       position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        map: map,
+        icon: image,
+        });
+        myMarker.setMap(map);
+        }, onError);
         var options = { frequency: 1000 }; 
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); 
     }
