@@ -159,13 +159,11 @@ USGSOverlay.prototype.onRemove = function() {
   this.div_ = null;
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
-
 
     function onDeviceReady() {
-        var width = window.innerWidth;
-    var height = window.innerHeight;
-    document.getElementById("map-canvas").style = "width: " + width + "px;" + "height: " + height*.85 + "px;";
+    //var width = window.innerWidth;
+    //var height = window.innerHeight;
+    //document.getElementById("map-canvas").style = "width: " + width + "px;" + "height: " + height*.85 + "px;";
               var myLatLng = new google.maps.LatLng(38.9616125, -77.0914382),
               mapOptions = {
     zoom: 18,
@@ -209,7 +207,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
              </div>             
                     <!--- Slider --->               
      <div>
-<center><div id="map-canvas"></div></center>
+<div id="map-canvas" style = "width: 480px; height: 680px;"></div>
    </div>
                  <!--- End Slider --->
            <div class="header-bottom">
