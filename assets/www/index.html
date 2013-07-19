@@ -167,20 +167,23 @@ USGSOverlay.prototype.onRemove = function() {
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
           
           
-        navigator.geolocation.getCurrentPosition(function(position){
-                    var image = "img/bluedot.png";
-             myMarker = new google.maps.Marker({
-       position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-        map: map,
-        icon: image,
-        });
-        myMarker.setMap(map);
-        }, onError);
+        navigator.geolocation.getCurrentPosition(initialMarker, onError);
         var options = { frequency: 1000 }; 
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); 
     }
     // onSuccess Geolocation
     //
+    
+    function initialMarker(position){
+        var image = "img/bluedot.png";
+        var markerPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+        myMarker = new google.maps.Marker({
+        position: markerPos,
+        map: map,
+        icon: image,
+        });
+        myMarker.setMap(map);
+    }
     function onSuccess(position) {
         var currentlat =  position.coords.latitude;
         var currentlong = position.coords.longitude;
