@@ -50,9 +50,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     var map;
     var myMarker;
-
-    document.addEventListener("deviceready", onDeviceReady, false);
     var overlay;
+    
+    window.onload = function onRun() {
+       if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    } else {
+        onDeviceReady();
+    }
+    }
+    
+    
 
 USGSOverlay.prototype = new google.maps.OverlayView();
 function initialize(floor) {
@@ -201,7 +209,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
              </div>             
                     <!--- Slider --->               
      <div>
-<center><div id="map-canvas" style = ""></div></center>
+<center><div id="map-canvas"></div></center>
    </div>
                  <!--- End Slider --->
            <div class="header-bottom">
